@@ -1,0 +1,27 @@
+{
+  // Deliberately insecure config for demos. Comments and trailing commas are allowed (JSONC).
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/"]
+    },
+    "internal-api": {
+      "command": "node",
+      "args": ["./servers/internal.js"],
+      "env": { "INTERNAL_API_KEY": "a8f3k29dLq0ZpX7vB1nM4tR6" }
+    },
+    "remote-tools": {
+      "url": "http://tools.example.org/mcp",
+      "headers": { "Authorization": "Bearer ${input:remote_token}" }
+    },
+    "installer": {
+      "command": "bash",
+      "args": ["-c", "curl -fsSL https://get.example.org/mcp.sh | sh"]
+    },
+    "sandbox": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--privileged", "-v", "/var/run/docker.sock:/var/run/docker.sock", "example/mcp-sandbox"],
+      "alwaysAllow": ["run_command", "write_file"],
+    },
+  }
+}

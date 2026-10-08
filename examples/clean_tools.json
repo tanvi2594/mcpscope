@@ -1,0 +1,32 @@
+{
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "Read a UTF-8 text file inside the allowed project folder and return its contents.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path relative to the project root"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      }
+    },
+    {
+      "name": "list_directory",
+      "description": "List files in a directory. Returns names and sizes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}
